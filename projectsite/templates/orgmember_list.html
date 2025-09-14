@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">List of Organizations</div>
+                        <div class="card-title">List of OrgMember</div>
                         <div class="card-category">Page Subtitle</div>
                     </div>
                     <br />
@@ -28,8 +28,8 @@
     </div>
     <div class="col-md-6">
         <div class="pull-right">
-            <a href="{% url 'organization_add' %}" class="btn btn-success btn-rounded">
-                Add Organization
+            <a href="{% url 'orgmember-add' %}" class="btn btn-success btn-rounded">
+                Add OrgMember
             </a>
         </div>
     </div>
@@ -46,15 +46,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for object in object_list %}
+                                {% for member in orgmembers %}
                                 <tr>
-                                    <td>{{ object.name }}</td>
-                                    <td>{{ object.college }}</td>
-                                    <td>{{ object.description }}</td>
+                                   <td>{{ member.student }}</td>
+                                    <td>{{ member.organization }}</td>
+                                    <td>{{ member.date_joined }}</td>
                                     <td>
-                                        <td>
-                                        <a href="{% url 'organization_update' object.id %}">Edit</a>
-                                        <a href="{% url 'organization_delete' object.id %}" class="text-danger">Delete</a>
+                                        <a href="{% url 'orgmember-update' member.id %}">Edit</a>
+                                        <a href="{% url 'orgmember-delete' member.id %}" class="text-danger">Delete</a>
                                     </td>
 
                                     </td>

@@ -9,8 +9,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">List of Organizations</div>
+                        <div class="card-title">List of Colleges</div>
                         <div class="card-category">Page Subtitle</div>
+                        <p>Total Colleges: {{ colleges|length }}</p>
+
                     </div>
                     <br />
 <div class="col-md-12 row">
@@ -28,8 +30,8 @@
     </div>
     <div class="col-md-6">
         <div class="pull-right">
-            <a href="{% url 'organization_add' %}" class="btn btn-success btn-rounded">
-                Add Organization
+            <a href="{% url 'college-add' %}" class="btn btn-success btn-rounded">
+                Add College
             </a>
         </div>
     </div>
@@ -46,15 +48,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for object in object_list %}
+                                {% for college in colleges %}
                                 <tr>
-                                    <td>{{ object.name }}</td>
-                                    <td>{{ object.college }}</td>
-                                    <td>{{ object.description }}</td>
+                                    <td>{{ college.college_name}}</td>
+                                    <td>{{ college.description }}</td>
                                     <td>
                                         <td>
-                                        <a href="{% url 'organization_update' object.id %}">Edit</a>
-                                        <a href="{% url 'organization_delete' object.id %}" class="text-danger">Delete</a>
+                                        <a href="{% url 'college-update' college.id %}">Edit</a>
+                                        <a href="{% url 'college-delete' college.id %}" class="text-danger">Delete</a>
                                     </td>
 
                                     </td>
