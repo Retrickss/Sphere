@@ -14,7 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 from studentorg.views import HomePageView, OrganizationList, OrganizationCreateView,OrganizationUpdateView, OrganizationDeleteView
 from studentorg import views
@@ -22,6 +22,7 @@ from studentorg import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.HomePageView.as_view(), name="home"),
+    path("accounts/", include("allauth.urls")), # allauth routes
 
     # Organization
     path("organization_list", views.OrganizationList.as_view(), name="organization-list"),
