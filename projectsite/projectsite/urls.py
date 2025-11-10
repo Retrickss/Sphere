@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.HomePageView.as_view(), name="home"),
     path("accounts/", include("allauth.urls")), # allauth routes
+    path('', include('pwa.urls')),
 
     # Organization
     path("organization_list", views.OrganizationList.as_view(), name="organization-list"),
